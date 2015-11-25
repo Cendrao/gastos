@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gastos</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="skin-blue fixed">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="/" class="logo">Gastos App</a>
+			<nav class="navbar navbar-static-top" role="navigation"></nav>
+		</header>
+
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<div class="slimScrollDiv">
+				<div class="sidebar" id="scrollspy">
+					<!-- sidebar menu: : style can be found in sidebar.less -->
+					<ul class="nav sidebar-menu">
+						<li class="header">Menu</li>
+						<li class=""><a href="#introduction"><i class="fa fa-circle-o"></i>Foo</a></li>
+
+					</ul>
+				</div>
+				<div class="slimScrollBar">				
+				</div>
+				<div class="slimScrollRail">				
+				</div>
+			</div>
+			<!-- /.sidebar -->
+		</aside>
+
+		<div class="content-wrapper">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

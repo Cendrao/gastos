@@ -1,0 +1,54 @@
+<div class="content-header">
+	<h1>Category: <%= @category.name %></h1>
+</div>
+
+
+<div class="content body">
+
+	<section id="category">
+		<button class="btn btn-primary btn-flat" onclick="toggleCategoryForm()">Toggle Category</button>
+
+		<%= form_for :entry, url: category_entries_path(@category), :html => {id: "form-entry", class: "form-horizontal", style: ""} do |f| %>
+		<div class="form-group">
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :date %>
+			<%= f.text_field :date, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :value %>
+			<%= f.text_field :value, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Create", :class => "btn btn-success" %>
+		</div>
+		<% end %>
+
+	</section>	
+
+	<section id="summary">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Entry name</th>
+					<th>Date</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<% @category.entries.each do |e| %>
+				<tr>
+					<td><%= e.name%></td>
+					<td><%= e.date%></td>
+					<td>R$ <%= e.value%></td>
+				</tr>
+				<% end%>
+
+			</tbody>
+		</table>
+	</section>
+</div>
