@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
 	def create
 		@category = Category.new(category_params)
-
+		@category.user = User.find_by(id: session[:current_user_id])
 		@category.save
 		redirect_to "/"
 	end

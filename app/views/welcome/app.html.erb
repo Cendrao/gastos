@@ -1,0 +1,62 @@
+
+<div class="content-header">
+	<h1>Planejador de Gastos</h1>
+</div>
+
+<div class="content body">
+
+
+	<section id="category">
+		<button class="btn btn-primary btn-flat" onclick="toggleCategoryForm()">Create Category</button>
+
+		<%= form_for :category, url: categories_path, :html =>  {id: "form-category", class: "form-horizontal", style: "display:none;"} do |f| %>
+		<div class="form-group">
+			<%= f.label :name%>
+			<%= f.text_field :name, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Create", :class => "btn btn-success" %>
+		</div>
+
+		<% end %>
+
+	</section>	
+
+	<section id="summary">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Entry name</th>
+					<th>Date</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @categories.each do |c| %>
+				<tr>
+					<td class="category-row" colspan="3">
+						<%= link_to c.name, category_path(c) %>
+					</td>
+				</tr>
+				<% c.entries.each do |e| %>
+				<tr>
+					<td><%= e.name%></td>
+					<td><%= e.date%></td>
+					<td>R$ <%= e.value%></td>
+				</tr>
+				<% end%>
+				<% end %>
+			</tbody>
+		</table>
+	</section>
+
+
+	<section id="balance">
+		<p>
+			Your balance is R$: <%= @balance %>
+		</p>
+
+	</section>
+
+</div>

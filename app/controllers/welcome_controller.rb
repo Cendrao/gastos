@@ -1,6 +1,10 @@
 class WelcomeController < ApplicationController
 	def index
-		@categories = Category.all.order(name: :asc)
+		redirect_to "/welcome/app" if !!User.find(session[:current_user_id])
+	end
+
+	def app
+		@categories = Category.where(user: session[:current_user_id]).order(name: :asc)
 		@balance = 0
 
 		@categories.each do |c|		
@@ -10,4 +14,5 @@ class WelcomeController < ApplicationController
 			end
 		end
 	end
+
 end
