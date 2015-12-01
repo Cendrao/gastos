@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151119172136) do
 
-  create_table "categoria", force: :cascade do |t|
-    t.string   "nome",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -35,17 +29,6 @@ ActiveRecord::Schema.define(version: 20151119172136) do
   end
 
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
-
-  create_table "lancamentos", force: :cascade do |t|
-    t.string   "nome",         limit: 255
-    t.decimal  "valor",                    precision: 10
-    t.date     "data"
-    t.integer  "categoria_id", limit: 4
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-  end
-
-  add_index "lancamentos", ["categoria_id"], name: "index_lancamentos_on_categoria_id", using: :btree
 
   add_foreign_key "entries", "categories"
 end
