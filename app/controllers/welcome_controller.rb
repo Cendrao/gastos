@@ -4,15 +4,13 @@ class WelcomeController < ApplicationController
 	end
 
 	def app
+		after_login
+		
 		@categories = Category.where(user: session[:current_user_id]).order(name: :asc)
-		@balance = 0
 
-		@categories.each do |c|		
+		@balance = @categories.map { |c| c.entries.where("date <= ?",  Date.today).sum(:value) }
+		@balance = @balance.inject{ |sum, x | sum + x }
 
-			c.entries.each do |e|
-				@balance += e.value
-			end
-		end
 	end
 
 end

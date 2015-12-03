@@ -1,0 +1,28 @@
+<div class="register-box">
+
+  <div class="register-box-body">
+
+  <%= form_for :user, url: { action: 'signin'}, :html =>  {id: "form-category", class: "form-horizontal"} do |f| %>
+
+    <div class="form-group has-feedback">
+      <%= f.text_field :email, class: 'form-control', :placeholder =>   'Email' %>  
+      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+     <%= f.password_field  :password, class: 'form-control', :placeholder =>   'Password' %>  
+     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+   </div>
+
+   <div class="row">       
+
+    <div class="col-xs-4 text-center">
+      <%= f.submit "Login", :class => "btn btn-success" %>
+    </div>
+
+  </div>
+
+  <% end %>
+
+</div>
+
+</div>

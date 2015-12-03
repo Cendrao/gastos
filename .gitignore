@@ -34,4 +34,6 @@ bower.json
 #ignore caches
 /vendor/cache
 
+.byebug*
+
 

@@ -3,7 +3,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <%= form_for :user, url: users_path, :html =>  {id: "form-category", class: "form-horizontal"} do |f| %>
+    <%= form_for :user, url: users_create, :html =>  {id: "form-category", class: "form-horizontal"} do |f| %>
     <div class="form-group has-feedback">
       <%= f.text_field :name, class: 'form-control', :placeholder =>   'Name'  %>    
       <span class="glyphicon glyphicon-user form-control-feedback"></span>

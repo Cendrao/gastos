@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Gastos</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
@@ -13,15 +15,16 @@
 			<nav class="navbar navbar-static-top" role="navigation"></nav>
 		</header>
 
-		<aside class="main-sidebar">
-			<!-- sidebar: style can be found in sidebar.less -->
+		<!-- <aside class="main-sidebar">
+		
 			<div class="slimScrollDiv">
 				<div class="sidebar" id="scrollspy">
-					<!-- sidebar menu: : style can be found in sidebar.less -->
+				
 					<ul class="nav sidebar-menu">
 						<li class="header">Menu</li>
-						<li class=""><a href="#introduction"><i class="fa fa-circle-o"></i>Foo</a></li>
-
+						<li class="">
+							<a href="#introduction"><i class="fa fa-circle-o"></i>Foo</a>
+						</li>
 					</ul>
 				</div>
 				<div class="slimScrollBar">				
@@ -29,8 +32,7 @@
 				<div class="slimScrollRail">				
 				</div>
 			</div>
-			<!-- /.sidebar -->
-		</aside>
+		</aside> -->
 
 		<div class="content-wrapper">
 			<%= yield %>
