@@ -46,7 +46,7 @@
 				<% @category.entries.each do |e| %>
 				<tr>
 					<td><%= e.name%></td>
-					<td><%= e.date%></td>
+					<td><%= e.date.strftime('%d/%m/%Y') %></td>
 					<td>R$ <%= e.value%></td>
 				</tr>
 				<% end%>

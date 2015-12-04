@@ -42,7 +42,7 @@
 				<% c.entries.each do |e| %>
 				<tr class="entry">
 					<td><%= e.name%></td>
-					<td><%= e.date%></td>
+					<td><%= e.date.strftime('%d/%m/%Y') %></td>
 					<td>R$ <%= e.value%></td>
 				</tr>
 				<% end%>
