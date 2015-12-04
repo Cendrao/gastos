@@ -31,6 +31,11 @@ class UsersController < ApplicationController
 
 	end
 
+	def logout
+		reset_session
+		redirect_to "/"
+	end
+
 	private
 	def user_creation_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)

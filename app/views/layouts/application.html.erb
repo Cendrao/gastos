@@ -12,31 +12,51 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<a href="/" class="logo">Gastos App</a>
-			<nav class="navbar navbar-static-top" role="navigation"></nav>
-		</header>
-
-		<!-- <aside class="main-sidebar">
-		
-			<div class="slimScrollDiv">
-				<div class="sidebar" id="scrollspy">
+			<nav class="navbar navbar-static-top" role="navigation">
 				
-					<ul class="nav sidebar-menu">
-						<li class="header">Menu</li>
-						<li class="">
-							<a href="#introduction"><i class="fa fa-circle-o"></i>Foo</a>
+				<% if !!@current_user then %>
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li class="dropdown user user-menu">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<span class="hidden-xs"><%= @current_user.name%></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/users/logout">Logout</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</div>
-				<div class="slimScrollBar">				
-				</div>
-				<div class="slimScrollRail">				
-				</div>
-			</div>
-		</aside> -->
+				<% end %>
 
-		<div class="content-wrapper">
-			<%= yield %>
+			</nav>
+		</header>
+
+		<aside class="main-sidebar">
+
+			<div class="slimScrollDiv">
+				<div class="sidebar" id="scrollspy">
+
+					<ul class="nav sidebar-menu">
+						<li class="header">Menu</li>						
+
+						<% if !!@current_user then %>
+							<%= render partial: "menu", locals: { user: @current_user } %>
+						<% end %>
+						</ul>
+					</div>
+					<div class="slimScrollBar">				
+					</div>
+					<div class="slimScrollRail">				
+					</div>
+				</div>
+			</aside> 
+
+			<div class="content-wrapper">
+				<%= yield %>
+			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>

@@ -1,6 +1,6 @@
 
 <div class="content-header">
-	<h1>Planejador de Gastos</h1>
+	<h1>Expenses Planner</h1>
 </div>
 
 <div class="content body">
@@ -40,7 +40,7 @@
 					</td>
 				</tr>
 				<% c.entries.each do |e| %>
-				<tr>
+				<tr class="entry">
 					<td><%= e.name%></td>
 					<td><%= e.date%></td>
 					<td>R$ <%= e.value%></td>
