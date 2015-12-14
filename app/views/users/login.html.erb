@@ -2,7 +2,7 @@
 
   <div class="register-box-body">
 
-  <%= form_for :user, url: { action: 'create'}, :html =>  {id: "form-category", class: "form-horizontal"} do |f| %>
+  <%= form_for :user, url: { action: 'signin'}, :html =>  {id: "form-category", class: "form-horizontal"} do |f| %>
 
     <div class="form-group has-feedback">
       <%= f.text_field :email, class: 'form-control', :placeholder =>   'Email' %>  
